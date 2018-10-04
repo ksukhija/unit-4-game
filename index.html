@@ -1,0 +1,158 @@
+<!-- Word-Guess Game -->
+<!DOCTYPE html>
+<html lang="en-us">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Example</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <!-- Added link to the jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <H1 class="display-3 text-info">C<small>RYSTAL</small> C<small>OLLECTOR</small> G<small>AME</small></H1>
+    </nav>
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="card text-white bg-dark mb-3 w-75 mx-auto">
+            <div class="card-header text-center">
+                <H1 class="display-4"> S <small>C O R E C A R D</small></H1>
+            </div>
+            <div class="card-body">
+                <!-- <h2 style="display:inline" class="text-white bg-primary"> Wins </h2> -->
+                <button type="button" class="btn btn-success">
+                    <h2>Wins:</h2>
+                    <!--Updated by JS-->
+                </button>
+                <button type="button" class="btn btn-primary">
+                    <h2 id="overall-wins-count">0</h2>
+                    <!--Updated by JS-->
+                </button>
+
+
+                <!-- <button type="button" class="btn btn-success">
+                    <h2>YOU WON!!</h2>
+                </button> -->
+
+                <div class="float-right">
+                    <button type="button" class="btn btn-warning">
+                        <h2>Loses:</h2>
+
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <h2 id="overall-loses-count">0</h2>
+                        <!--Updated by JS-->
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class=" card border-info">
+                    <div class="card-header text-center">
+                        <div class="card-title">
+                            <h3 class="text-danger"> TARGET SCORE<br>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+
+                        <button type="button" class="btn">
+                            <h2 id="target-score-tag" class="display-4 text-danger">0</h2>
+                            <!--Updated by JS-->
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class=" card border-info">
+                    <div class="card-header text-center">
+                        <div class="card-title">
+                            <h3 class="text-info"> Your CURRENT SCORE<br>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+
+                        <button type="button" class="btn">
+                            <h2 id="current-score-tag" class="display-4 text-info">You Won!!</h2>
+                            <!--Updated by JS-->
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-sm-6 col-md-3 ">
+                <button type="button" class="btn-lg btn-info crystal">
+                    <h2 id="crystal-1-tag" class="text-white ">C<small>RYSTAL-</small>1</h2>
+                    <p class="text-warning"> <small>Click To Show Points</small></p>
+
+                </button>
+            </div>
+
+
+            <div class="col-sm-6 col-md-3">
+                <button type="button" class="btn-lg btn-info crystal">
+                    <h2 id="crystal-2-tag" class="text-white ">C<small>RYSTAL-</small>2</h2>
+                    <p class="text-warning"> <small>Click To Show Points</small></p>
+                </button>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <button type="button" class="btn-lg btn-info crystal">
+                    <h2 id="crystal-3-tag" class="text-white ">C<small>RYSTAL-</small>3</h2>
+                    <p class="text-warning"> <small>Click To Show Points</small></p>
+
+                </button>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <button type="button" class="btn-lg btn-info crystal">
+                    <h2 id="crystal-4-tag" class="text-white ">C<small>RYSTAL-</small>4</h2>
+                    <p class="text-warning"> <small>Click To Show Points</small></p>
+                </button>
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Loading the Javasript after all the HTML code -->
+        <script src="./assets/javascript/game.js"></script>
+
+</body>
+
+</html>
