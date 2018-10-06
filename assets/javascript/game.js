@@ -24,6 +24,7 @@ var g_crystal4PointsHidden;
 //Players Current Score
 var g_current_score;
 
+//game current status 
 var g_game_status;
 
 // Game Win/Loss Counts
@@ -46,14 +47,25 @@ const GAME_OVER_PLAYER_WON = 1;
 const GAME_OVER_PLAYER_LOST = 2;
 const GAME_IN_PROGRESS = 3;
 
-const PLAYER_WON_MSG_STRING = "YOU WON!!"
-const PLAYER_LOST_MSG_STRING = "YOU LOST!!"
+// Game Result Messages
+const PLAYER_WON_MSG_STRING = "You Won!"
+const PLAYER_LOST_MSG_STRING = "You Lost!"
+
+// Time to display the Game Result before restating game
+const ONE_SECOND_TIME_PERIOD = 1000;
 
 /**
  *   F U N C T I O N S
  */
 
-
+/**
+ *  This function check if the game is over  and returns 3 possible values
+ * 
+ *  Returns:
+ *  GAME_OVER_PLAYER_WON
+ *  GAME_OVER_PLAYER_LOST
+ *  GAME_IN_PROGRESS
+ */
 
 function get_game_status() {
 
@@ -66,8 +78,12 @@ function get_game_status() {
     }
 }
 
+/**
+ *  Restarts the game if it was over
+ */
+
 function restart_game() {
-    
+
     if (g_game_status != GAME_IN_PROGRESS) {
 
         //Restart the Game
@@ -121,13 +137,15 @@ function module_init() {
 }
 
 
-
+/**
+ * This function is called when player click on any of the Crystals. 
+ * 
+ * The event object 'buttonClickEvent' contains the information about the event
+ * including which particular Crystal was clicked
+ * 
+ * @param {*} buttonClickEvent 
+ */
 function m_crystal_click_handler(buttonClickEvent) {
-
-
-    //    //update the current score on the Web Page
-    //    $("#current-score-tag").text(g_targetNumber);
-    
 
     // currentTarget in the event object refers to the Current DOM Element
     // buttonClickEvent.currentTarget is EQUIVALENT to "this"
@@ -173,13 +191,14 @@ function m_crystal_click_handler(buttonClickEvent) {
             break;
 
         default:
+            // should not happen 
             console.log("Invalid Key Pressed")
             break;
 
     }
 
 
-    // returns three possible values 
+    // Get the game status - Over or In-progress
     g_game_status = get_game_status();
 
     // is Game Over ?
@@ -196,7 +215,8 @@ function m_crystal_click_handler(buttonClickEvent) {
             console.log("Invalid Game status !!")
         }
 
-        setTimeout(restart_game, 1000);
+        // wait for some time to display the 'Game Over' msg before restarting the game
+        setTimeout(restart_game, ONE_SECOND_TIME_PERIOD);
 
     } else {
         // Game in Progress - update the current score on the Web Page
@@ -218,7 +238,7 @@ $(document).ready(function () {
     //Initialize module data
     module_init();
 
-
+    // register function to handle Crystal Clicks 
     $(".crystal").on("click", m_crystal_click_handler)
 
 
